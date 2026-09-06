@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="icon" type="image/png" href="./images/favicon.ico">
+    <title>Clase Usuario v3</title>
+</head>
+<body>
+    <div class="page">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">👤</div>
+                <h1>Crear nuevo usuario</h1>
+                <p class="card-subtitle">Complete los datos para registrar un usuario.</p>
+            </div>
+
+            <form id="formulario" class="formulario">
+                <div class="group-nombre field">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Juan" required>
+                </div>
+
+                <div class="group-email field">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="juan@example.com" required>
+                </div>
+
+                <div class="group-edad field">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" placeholder="0 a 130" min="0" max="130" required>
+                </div>
+
+                <div class="group-pinActual field">
+                    <label for="pinActual">PIN Actual:</label>
+                    <input type="password" id="pinActual" name="pinActual" placeholder="4 dígitos" pattern="[0-9]{4}" required>
+                </div>
+
+                <div class="group-pinNuevo field">
+                    <label for="pinNuevo">PIN Nuevo:</label>
+                    <input type="password" id="pinNuevo" name="pinNuevo" placeholder="4 dígitos" pattern="[0-9]{4}" required>
+                </div>
+
+                <div class="group-pinNuevo2 field">
+                    <label for="pinNuevo2">Repetir PIN Nuevo:</label>
+                    <input type="password" id="pinNuevo2" name="pinNuevo2" placeholder="4 dígitos" pattern="[0-9]{4}" required>
+                </div>
+
+                <button type="button" class="btnCrear" id="btnCrear">Crear Usuario</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="./scripts/script.js"></script>
+</body>
+</html>
