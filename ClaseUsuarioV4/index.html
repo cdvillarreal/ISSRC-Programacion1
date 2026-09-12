@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="./images/favicon.ico">
+    <title>Clase Usuario v4</title>
+    <style>
+        body { font-family: 'Poppins', Arial, sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 relative overflow-x-hidden">
+
+    <!-- Blobs decorativos de fondo -->
+    <div class="pointer-events-none fixed inset-0 overflow-hidden -z-10">
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-indigo-600/40 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 -right-24 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-fuchsia-600/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="min-h-screen flex items-center justify-center p-6">
+        <div class="w-full max-w-md bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-black/40 p-8 sm:p-10">
+
+            <div class="text-center mb-8">
+                <div class="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-2xl shadow-lg shadow-indigo-500/30">
+                    👤
+                </div>
+                <h1 class="text-2xl font-bold text-white">Crear nuevo usuario</h1>
+                <p class="text-sm text-slate-400 mt-1">Complete los datos para registrar un usuario.</p>
+            </div>
+
+            <form id="formulario" class="flex flex-col gap-5" novalidate>
+                <div class="flex flex-col gap-1.5">
+                    <label for="nombre" class="text-sm font-medium text-slate-300">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez"
+                        class="w-full px-4 py-2.5 rounded-lg bg-slate-800/60 border border-white/10 text-slate-100 placeholder-slate-500 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30">
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                    <label for="email" class="text-sm font-medium text-slate-300">Email</label>
+                    <input type="email" id="email" name="email" placeholder="juan@example.com"
+                        class="w-full px-4 py-2.5 rounded-lg bg-slate-800/60 border border-white/10 text-slate-100 placeholder-slate-500 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1.5">
+                        <label for="edad" class="text-sm font-medium text-slate-300">Edad</label>
+                        <input type="number" id="edad" name="edad" placeholder="0 a 130" min="0" max="130"
+                            class="w-full px-4 py-2.5 rounded-lg bg-slate-800/60 border border-white/10 text-slate-100 placeholder-slate-500 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30">
+                    </div>
+
+                    <div class="flex flex-col gap-1.5">
+                        <label for="telefono" class="text-sm font-medium text-slate-300">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="1123456789" pattern="[0-9]{10}" maxlength="10" inputmode="numeric"
+                            class="w-full px-4 py-2.5 rounded-lg bg-slate-800/60 border border-white/10 text-slate-100 placeholder-slate-500 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30">
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                    <label for="password" class="text-sm font-medium text-slate-300">Contraseña</label>
+                    <div class="relative">
+                        <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres"
+                            class="w-full px-4 py-2.5 pr-11 rounded-lg bg-slate-800/60 border border-white/10 text-slate-100 placeholder-slate-500 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30">
+                        <button type="button" data-toggle="password" aria-label="Mostrar contraseña"
+                            class="toggle-password absolute inset-y-0 right-0 flex items-center px-3 text-slate-400 hover:text-slate-200">
+                            <svg class="icon-eye w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <svg class="icon-eye-slash w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.774 3.162 10.066 7.498a10.522 10.522 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                    <label for="password2" class="text-sm font-medium text-slate-300">Repetir contraseña</label>
+                    <div class="relative">
+                        <input type="password" id="password2" name="password2" placeholder="Repita la contraseña"
+                            class="w-full px-4 py-2.5 pr-11 rounded-lg bg-slate-800/60 border border-white/10 text-slate-100 placeholder-slate-500 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30">
+                        <button type="button" data-toggle="password2" aria-label="Mostrar contraseña"
+                            class="toggle-password absolute inset-y-0 right-0 flex items-center px-3 text-slate-400 hover:text-slate-200">
+                            <svg class="icon-eye w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <svg class="icon-eye-slash w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.774 3.162 10.066 7.498a10.522 10.522 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <label for="activo" class="flex items-center gap-2.5 cursor-pointer select-none mt-1">
+                    <input type="checkbox" id="activo" name="activo" checked
+                        class="w-4 h-4 rounded border-white/20 bg-slate-800/60 text-indigo-500 focus:ring-2 focus:ring-indigo-500/40 focus:ring-offset-0">
+                    <span class="text-sm text-slate-300">Usuario activo</span>
+                </label>
+
+                <button type="button" id="btnGuardar"
+                    class="mt-2 w-full py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/30 transition hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./scripts/script.js"></script>
+</body>
+</html>
